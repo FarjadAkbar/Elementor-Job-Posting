@@ -1,0 +1,77 @@
+.job-listing-container {    
+    color: rgb(0, 0, 0);
+}
+
+.job-header .company-logo{
+    width: 100px;
+    height: 100px;
+    border-radius: 6px;
+}
+
+.job-header .job-title{
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+
+.job-header .job-company{
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+}
+
+.job-header .job-date{
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.job-detail{
+    padding-top: 20px;
+    padding-bottom: 20px;    
+    margin-top: 40px;
+    margin-bottom: 40px;
+	text-align: left;
+    border-top: 1px solid rgba(199, 199, 199, 0.3);
+    border-bottom: 1px solid rgba(199, 199, 199, 0.3);
+}
+
+.info-box{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.info-box .at-icon-box-icon{
+background-color: #fff4ee;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-size: 20px;
+    color: #AC6C47;
+}
+
+.info-box .at-icon-text{
+    margin: 0 12px;
+}
+
+.info-box .at-icon-text .box-title{
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: rgb(0, 0, 0);
+}
+
+.info-box .at-icon-text .box-description{
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgb(0, 0, 0);
+}
+
+
+@media (min-width: 768px){
+    .col-md-3 {
+        flex: 0 0 20% !important;
+        max-width: 20% !important;
+    }
+}
