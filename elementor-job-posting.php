@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Elementor Pricing Widget
+ * Elementor Job Posting Widget
  *
  * @package ElementorGrid
  *
- * Plugin Name: Listing Schema Generator
- * Description: schema generator plugin
+ * Plugin Name: Elementor Job Posting
+ * Description: Dieses Elementor Addon fügt deiner Jobseite automatisch Strukturierte Daten / Schema Markup für JobPostings hinzu.
  * Plugin URI:  https://www.fiverr.com/farjadakbar
  * Version:     1.0.0
  * Author:      Farjad Akbar
  * Author URI:  https://www.fiverr.com/farjadakbar
- * Text Domain: listing-schema-generator
+ * Text Domain: elementor-job-posting
  */
 
 
@@ -28,9 +28,9 @@ $dotenv->load();
 $GITHUB_TOKEN = $_ENV['GITHUB_TOKEN'];
 
 $updateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/FarjadAkbar/Listing-Schema-Generator',
+	'https://github.com/FarjadAkbar/elementor-job-posting',
 	__FILE__,
-	'listing-schema-generator'
+	'elementor-job-posting'
 );
 $updateChecker->setBranch('main');
 
@@ -41,6 +41,6 @@ $updateChecker->setAuthentication($GITHUB_TOKEN);
 function register_schema_widget($widgets_manager)
 {
     require_once(__DIR__ . '/widget/index.php');
-    $widgets_manager->register(new \Elementor_Schema_Generator_Widget());
+    $widgets_manager->register(new \Elementor_Job_Posting_Widget());
 }
 add_action('elementor/widgets/register', 'register_schema_widget');

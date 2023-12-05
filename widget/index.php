@@ -11,7 +11,7 @@ if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-class Elementor_Schema_Generator_Widget extends Widget_Base{
+class Elementor_Job_Posting_Widget extends Widget_Base{
 /**
      * Retrieve Widget Name.
      *
@@ -20,7 +20,7 @@ class Elementor_Schema_Generator_Widget extends Widget_Base{
      */
     public function get_name()
     {
-        return 'listing-schema-generator';
+        return 'elementor-job-posting';
     }
 
 
@@ -32,7 +32,7 @@ class Elementor_Schema_Generator_Widget extends Widget_Base{
      */
     public function get_title()
     {
-        return esc_html('Job Posting', 'listing-schema-generator');
+        return esc_html('Job Posting', 'elementor-job-posting');
     }
 
     public function get_icon()

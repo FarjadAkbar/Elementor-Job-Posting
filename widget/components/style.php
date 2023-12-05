@@ -7,9 +7,9 @@ use Elementor\Group_Control_Border;
 
 function dimension($that, $section_id, $label, $selector, $usage){
     $that->add_responsive_control(
-        'schema_'.$section_id,
+        'posting_'.$section_id,
         [
-            'label' => esc_html( $label, 'listing-schema-generator' ),
+            'label' => esc_html( $label, 'elementor-job-posting' ),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
             'selectors' => [
@@ -21,9 +21,9 @@ function dimension($that, $section_id, $label, $selector, $usage){
 
 function slider($that, $section_id, $label, $selector, $usage){
     $that->add_responsive_control(
-        'schema_'.$section_id,
+        'posting_'.$section_id,
         [
-            'label' => esc_html( $label, 'listing-schema-generator' ),
+            'label' => esc_html( $label, 'elementor-job-posting' ),
             'type' => Controls_Manager::SLIDER,
             'size_units' => [ 'px' ],
             'range' => [
@@ -42,9 +42,9 @@ function slider($that, $section_id, $label, $selector, $usage){
 
 function color($that, $section_id, $label, $selector, $usage){
     $that->add_responsive_control(
-        'schema_'.$section_id,
+        'posting_'.$section_id,
         [
-            'label' => esc_html( $label, 'listing-schema-generator' ),
+            'label' => esc_html( $label, 'elementor-job-posting' ),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
                 '{{WRAPPER}} ' . $selector => $usage . ': {{VALUE}};',
@@ -57,7 +57,7 @@ function add_text_controls( $that, $section_id, $label, $selector ) {
         Group_Control_Typography::get_type(),
         [
             'name'     => $section_id . '_typography',
-            'label'    => esc_html( $label . ' Typography', 'listing-schema-generator' ),
+            'label'    => esc_html( $label . ' Typography', 'elementor-job-posting' ),
             'selector' => '{{WRAPPER}} ' . $selector,
         ]
     );
@@ -65,7 +65,7 @@ function add_text_controls( $that, $section_id, $label, $selector ) {
     $that->add_responsive_control(
         $section_id . '_color',
         [
-            'label'     => esc_html( $label . ' Color', 'listing-schema-generator' ),
+            'label'     => esc_html( $label . ' Color', 'elementor-job-posting' ),
             'type'      => \Elementor\Controls_Manager::COLOR,
             'selectors' => [
                 '{{WRAPPER}} ' . $selector => 'color: {{VALUE}}',
@@ -78,7 +78,7 @@ function add_background_border_control( $that, $control_id, $label, $selector ) 
     $that->add_responsive_control(
         $control_id . '_backgroundcolor',
         [
-            'label' => esc_html( $label . ' Background Color',  'listing-schema-generator' ),
+            'label' => esc_html( $label . ' Background Color',  'elementor-job-posting' ),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
                 '{{WRAPPER}} '. $selector => 'background-color: {{VALUE}}',
@@ -99,9 +99,9 @@ function add_background_border_control( $that, $control_id, $label, $selector ) 
 // Header
 function listingHeaderStyle($that){
     $that->start_controls_section(
-        'schema_header',
+        'posting_header',
         [
-            'label' => __( 'Kopfzeile', 'listing-schema-generator' ),
+            'label' => __( 'Kopfzeile', 'elementor-job-posting' ),
             'tab' => Controls_Manager::TAB_STYLE,
         ]
     );
@@ -110,7 +110,7 @@ function listingHeaderStyle($that){
     $that->add_group_control(
         Group_Control_Background::get_type(),
         [
-            'name' => 'schema_header_background',
+            'name' => 'posting_header_background',
             'types' => [ 'classic', 'gradient', 'video' ],
             'selector' => '{{WRAPPER}} .job-header',
         ]
@@ -119,7 +119,7 @@ function listingHeaderStyle($that){
     $that->add_control(
         'job_style_heading_image',
         [
-            'label' => esc_html( 'Image', 'listing-schema-generator' ),
+            'label' => esc_html( 'Image', 'elementor-job-posting' ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'none',
         ]
@@ -132,7 +132,7 @@ function listingHeaderStyle($that){
     $that->add_control(
         'job_style_heading_title',
         [
-            'label' => esc_html( 'Title', 'listing-schema-generator' ),
+            'label' => esc_html( 'Title', 'elementor-job-posting' ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -140,14 +140,14 @@ function listingHeaderStyle($that){
 
     dimension($that, 'title_header_padding', 'Padding', '.job-header .job-title', 'padding');
 
-    add_text_controls($that, 'schema_header_title', 'Title', '.job-header .job-title');
-    add_background_border_control($that, 'schema_header_title', 'Title', '.job-header .job-title');
+    add_text_controls($that, 'posting_header_title', 'Title', '.job-header .job-title');
+    add_background_border_control($that, 'posting_header_title', 'Title', '.job-header .job-title');
 
 
     $that->add_control(
         'job_style_heading_company',
         [
-            'label' => esc_html( 'Company', 'listing-schema-generator' ),
+            'label' => esc_html( 'Company', 'elementor-job-posting' ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -155,14 +155,14 @@ function listingHeaderStyle($that){
 
     dimension($that, 'company_header_padding', 'Padding', '.job-header .job-company', 'padding');
 
-    add_text_controls($that, 'schema_header_company', 'Company', '.job-header .job-company');
-    add_background_border_control($that, 'schema_header_company', 'Company', '.job-header .job-company');
+    add_text_controls($that, 'posting_header_company', 'Company', '.job-header .job-company');
+    add_background_border_control($that, 'posting_header_company', 'Company', '.job-header .job-company');
 
 
     $that->add_control(
         'job_style_heading_date',
         [
-            'label' => esc_html( 'Date', 'listing-schema-generator' ),
+            'label' => esc_html( 'Date', 'elementor-job-posting' ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -170,8 +170,8 @@ function listingHeaderStyle($that){
 
     dimension($that, 'date_header_padding', 'Padding', '.job-header .job-date', 'padding');
 
-    add_text_controls($that, 'schema_header_date', 'Date', '.job-header .job-date');
-    add_background_border_control($that, 'schema_header_date', 'Date', '.job-header .job-date');
+    add_text_controls($that, 'posting_header_date', 'Date', '.job-header .job-date');
+    add_background_border_control($that, 'posting_header_date', 'Date', '.job-header .job-date');
 
     $that->end_controls_section();
 }
@@ -179,9 +179,9 @@ function listingHeaderStyle($that){
 // Content
 function listingContentStyle($that){
     $that->start_controls_section(
-        'schema_style_content',
+        'posting_style_content',
         [
-            'label' => __( 'Job Beschreibung', 'listing-schema-generator' ),
+            'label' => __( 'Job Beschreibung', 'elementor-job-posting' ),
             'tab' => Controls_Manager::TAB_STYLE,
         ]
     );
@@ -189,7 +189,7 @@ function listingContentStyle($that){
     $that->add_group_control(
         Group_Control_Background::get_type(),
         [
-            'name' => 'schema_content_background',
+            'name' => 'posting_content_background',
             'types' => [ 'classic', 'gradient', 'video' ],
             'selector' => '{{WRAPPER}} .job-detail',
         ]
@@ -198,8 +198,8 @@ function listingContentStyle($that){
 
     dimension($that, 'description_padding', 'Padding', '.job-detail', 'padding');
 
-    add_text_controls($that, 'schema_description', 'Description', '.job-detail');
-    add_background_border_control($that, 'schema_description', 'Description', '.job-detail');
+    add_text_controls($that, 'posting_description', 'Description', '.job-detail');
+    add_background_border_control($that, 'posting_description', 'Description', '.job-detail');
 
     $that->end_controls_section();
 }
@@ -207,9 +207,9 @@ function listingContentStyle($that){
 // More Info
 function listingInfoStyle($that){
     $that->start_controls_section(
-        'schema_more_infobox',
+        'posting_more_infobox',
         [
-            'label' => __( 'Weitere Infos', 'listing-schema-generator' ),
+            'label' => __( 'Weitere Infos', 'elementor-job-posting' ),
             'tab' => Controls_Manager::TAB_STYLE,
         ]
     );
@@ -219,7 +219,7 @@ function listingInfoStyle($that){
     $that->add_group_control(
         Group_Control_Background::get_type(),
         [
-            'name' => 'schema_infobox_background',
+            'name' => 'posting_infobox_background',
             'types' => [ 'classic', 'gradient', 'video' ],
             'selector' => '{{WRAPPER}} .info-box',
         ]
@@ -229,7 +229,7 @@ function listingInfoStyle($that){
     $that->add_control(
         'job_style_heading_icon',
         [
-            'label' => esc_html( 'Icon', 'listing-schema-generator' ),
+            'label' => esc_html( 'Icon', 'elementor-job-posting' ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -240,7 +240,7 @@ function listingInfoStyle($that){
 
 
 
-    add_background_border_control($that, 'schema_infobox_icon', 'Icon', '.info-box .at-icon-box-icon');
+    add_background_border_control($that, 'posting_infobox_icon', 'Icon', '.info-box .at-icon-box-icon');
 
     slider($that, 'infobox_icon_width', 'Icon Width', '.info-box .at-icon-box-icon', 'width');
     slider($that, 'infobox_icon_height', 'Icon Height', '.info-box .at-icon-box-icon', 'height');
@@ -255,24 +255,24 @@ function listingInfoStyle($that){
     $that->add_control(
         'job_style_heading_info_title',
         [
-            'label' => esc_html( 'Title', 'listing-schema-generator' ),
+            'label' => esc_html( 'Title', 'elementor-job-posting' ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
     );
-    add_text_controls($that, 'schema_infobox_title', 'Title', '.info-box .at-icon-text .box-title');
+    add_text_controls($that, 'posting_infobox_title', 'Title', '.info-box .at-icon-text .box-title');
 
     
 
     $that->add_control(
         'job_style_heading_info_description',
         [
-            'label' => esc_html( 'Description', 'listing-schema-generator' ),
+            'label' => esc_html( 'Description', 'elementor-job-posting' ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
     );
-    add_text_controls($that, 'schema_infobox_description', 'Description', '.info-box .at-icon-text .box-description');
+    add_text_controls($that, 'posting_infobox_description', 'Description', '.info-box .at-icon-text .box-description');
 
 
     $that->end_controls_section();
