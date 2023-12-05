@@ -32,7 +32,7 @@ class Elementor_Schema_Generator_Widget extends Widget_Base{
      */
     public function get_title()
     {
-        return __('Job Listing', 'listing-schema-generator');
+        return esc_html('Job Posting', 'listing-schema-generator');
     }
 
     public function get_icon()

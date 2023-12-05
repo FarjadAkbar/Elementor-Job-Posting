@@ -13,11 +13,8 @@ function renderHtml($settings){
             </div>
 
             <div class="col-md-7">
-                <h2><a class="job-title" href="<?php echo $schema_job_link; ?>"><?php echo $schema_job_title; ?></a></h2>
-                <p class="job-company mb-3"><?php echo $schema_job_company; ?></p>
-
-                <p class="job-date">
-                    <?php Icons_Manager::render_icon( $date_icon, [ 'aria-hidden' => 'true' ] ); ?>
+            <p class="job-date">
+                    <?php Icons_Manager::render_icon( $date_post_icon, [ 'aria-hidden' => 'true' ] ); ?>
                     <?php
                     if (!empty($schema_job_post_date)) {
                         $date = new DateTime($schema_job_post_date);
@@ -27,6 +24,8 @@ function renderHtml($settings){
                     }
                     ?>
                 </p>
+                <h2 class="m-0"><a class="job-title" href="<?php echo !empty($schema_job_link['url']) ? $schema_job_link : '#'; ?>"><?php echo $schema_job_title; ?></a></h2>
+                <p class="job-company"><?php echo $schema_job_company; ?></p>
             </div>
         </div>
     </div>
@@ -65,8 +64,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-10">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Location</h5>
-                            <p class="box-description"><?= $schema_job_street . ', ' . $schema_job_zip_code . ', '  . ucfirst(strtolower($schema_job_city)); ?></p>
+                            <h5 class="box-title">Arbeitsort</h5>
+                            <p class="box-description"><?php echo $schema_job_street; ?></p><p class="box-description"><?php echo $schema_job_zip_code . ' ' . $schema_job_city; ?></p>
                         </div>
                     </div>
                 </div>
@@ -84,8 +83,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-10">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Employment Type</h5>
-                            <p class="box-description"><?= str_replace('_', ' ', $schema_job_type); ?></p>
+                            <h5 class="box-title">Anstellungsart</h5>
+                            <p class="box-description"><?php echo $schema_job_type; ?></p>
                         </div>
                     </div>
                 </div>
@@ -103,8 +102,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-10">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Location</h5>
-                            <p class="box-description"><?= $schema_job_price . ucfirst(strtolower($schema_job_currency)); ?> / <?= ucfirst(strtolower($schema_job_per)); ?></p>
+                            <h5 class="box-title">Gehalt</h5>
+                            <p class="box-description"><?php echo $schema_job_price . $schema_job_currency; ?> / <?php echo $schema_job_per; ?></p>
                         </div>
                     </div>
                 </div>
@@ -123,8 +122,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-10">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Expiration</h5>
-                            <p class="box-description"><?= date_format(date_create($schema_job_expire_date), 'm-d-Y'); ?></p>
+                            <h5 class="box-title">Bewerbung bis</h5>
+                            <p class="box-description"><?php echo date_format(date_create($schema_job_expire_date), 'm-d-Y'); ?></p>
                         </div>
                     </div>
                 </div>
