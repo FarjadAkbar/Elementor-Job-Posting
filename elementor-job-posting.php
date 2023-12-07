@@ -28,7 +28,7 @@ $dotenv->load();
 $GITHUB_TOKEN = $_ENV['GITHUB_TOKEN'];
 
 $updateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/FarjadAkbar/elementor-job-posting',
+	'https://github.com/FarjadAkbar/Elementor-Job-Posting',
 	__FILE__,
 	'elementor-job-posting'
 );
