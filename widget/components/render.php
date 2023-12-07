@@ -125,7 +125,7 @@ function renderHtml($settings){
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title">Bewerbung bis</h5>
-                            <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), 'm-d-Y'); ?></p>
+                            <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), 'd-m-Y'); ?></p>
                         </div>
                     </div>
                 </div>
