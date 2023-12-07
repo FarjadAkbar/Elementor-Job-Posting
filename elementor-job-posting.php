@@ -8,7 +8,7 @@
  * Plugin Name: Elementor Job Posting
  * Description: Dieses Elementor Addon fügt deiner Jobseite automatisch Strukturierte Daten / Schema Markup für JobPostings hinzu.
  * Plugin URI:  https://www.fiverr.com/farjadakbar
- * Version:     1.0.3
+ * Version:     1.0.4
  * Author:      Farjad Akbar
  * Author URI:  https://www.fiverr.com/farjadakbar
  * Text Domain: elementor-job-posting
@@ -20,12 +20,7 @@ if (!defined('ABSPATH')) {
 }
 
 require 'plugin-update-checker/plugin-update-checker.php';
-require 'vendor/autoload.php';
 use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-$GITHUB_TOKEN = $_ENV['GITHUB_TOKEN'];
 
 $updateChecker = PucFactory::buildUpdateChecker(
 	'https://github.com/FarjadAkbar/Elementor-Job-Posting',
@@ -33,9 +28,7 @@ $updateChecker = PucFactory::buildUpdateChecker(
 	'elementor-job-posting'
 );
 $updateChecker->setBranch('main');
-
-//Optional: If you're using a private repository, specify the access token like this:
-$updateChecker->setAuthentication($GITHUB_TOKEN);
+$updateChecker->setAuthentication('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');
 
 
 function register_schema_widget($widgets_manager)
