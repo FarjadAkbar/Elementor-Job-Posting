@@ -59,7 +59,7 @@ function listingHeader($that){
     $that->add_control(
         'date_post_icon',
         [
-            'label' => __( 'Icon', 'text-domain' ),
+            'label' => __( 'Icon', 'elementor-job-posting' ),
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-calendar-check',
@@ -128,7 +128,7 @@ function listingInfo($that){
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-hourglass',
-                'library' => 'fa-solid',
+                'library' => 'solid',
             ],
         ]
     );

@@ -138,10 +138,10 @@ function listingHeaderStyle($that){
         ]
     );
 
-    dimension($that, 'title_header_padding', 'Padding', '.job-header .job-title', 'padding');
+    dimension($that, 'title_header_padding', 'Padding', '.job-header .job-title h2', 'padding');
 
-    add_text_controls($that, 'posting_header_title', 'Title', '.job-header .job-title');
-    add_background_border_control($that, 'posting_header_title', 'Title', '.job-header .job-title');
+    add_text_controls($that, 'posting_header_title', 'Title', '.job-header .job-title h2');
+    add_background_border_control($that, 'posting_header_title', 'Title', '.job-header .job-title h2');
 
 
     $that->add_control(
@@ -247,7 +247,7 @@ function listingInfoStyle($that){
 
  
     dimension($that, 'infobox_icon_padding', 'Padding', '.info-box .at-icon-box-icon', 'padding');
-
+    dimension($that, 'infobox_icon_margin', 'Margin', '.info-box .at-icon-box-icon', 'margin');
 
     
     
@@ -261,8 +261,8 @@ function listingInfoStyle($that){
         ]
     );
     add_text_controls($that, 'posting_infobox_title', 'Title', '.info-box .at-icon-text .box-title');
-
-    
+    dimension($that, 'infobox_title_padding', 'Padding', '.info-box .at-icon-text', 'padding');
+ 
 
     $that->add_control(
         'job_style_heading_info_description',
@@ -273,8 +273,8 @@ function listingInfoStyle($that){
         ]
     );
     add_text_controls($that, 'posting_infobox_description', 'Description', '.info-box .at-icon-text .box-description');
-
-
+    dimension($that, 'infobox_description_padding', 'Padding', 'info-box .at-icon-text .box-description', 'padding');
+ 
     $that->end_controls_section();
 }
 

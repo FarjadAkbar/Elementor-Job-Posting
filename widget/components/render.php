@@ -24,7 +24,9 @@ function renderHtml($settings){
                     }
                     ?>
                 </p>
-                <h2 class="m-0"><a class="job-title" href="<?php echo !empty($posting_job_link['url']) ? $posting_job_link : '#'; ?>"><?php echo $posting_job_title; ?></a></h2>
+                <a class="job-title" href="<?php echo !empty($posting_job_link['url']) ? $posting_job_link : '#'; ?>">
+                    <h2 class="m-0"><?php echo $posting_job_title; ?></h2>
+                </a>
                 <p class="job-company"><?php echo $posting_job_company; ?></p>
             </div>
         </div>
@@ -35,16 +37,16 @@ function renderHtml($settings){
     </div>
 
     <div class="info-box">
-        <div class="row">
+        <div class="d-flex flex-wrap">
             <?php if ($posting_job_remote): ?>
-            <div class="col-md-3 position-relative">
-                <div class="row">
-                    <div class="col-md-2">
+            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+                <div class="row gap-2">
+                    <div class="col-md-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $remote_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title">Remote</h5>
                             <p class="box-description">Home Office</p>
@@ -55,14 +57,14 @@ function renderHtml($settings){
             <?php endif; ?> 
 
             <?php if ($posting_job_city || $posting_job_street || $posting_job_zip_code): ?>
-            <div class="col-md-3 position-relative">
-                <div class="row">
-                    <div class="col-md-2">
+            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+                <div class="row gap-2">
+                    <div class="col-md-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $location_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title">Arbeitsort</h5>
                             <p class="box-description"><?php echo $posting_job_street; ?></p><p class="box-description"><?php echo $posting_job_zip_code . ' ' . $posting_job_city; ?></p>
@@ -74,14 +76,14 @@ function renderHtml($settings){
 
 
             <?php if ($posting_job_type): ?>
-            <div class="col-md-3 position-relative">
-                <div class="row">
-                    <div class="col-md-2">
+            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+                <div class="row gap-2">
+                    <div class="col-md-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $job_type_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title">Anstellungsart</h5>
                             <p class="box-description"><?php echo $posting_job_type; ?></p>
@@ -93,14 +95,14 @@ function renderHtml($settings){
 
 
             <?php if ($posting_job_price): ?>
-            <div class="col-md-3 position-relative">
-                <div class="row">
-                    <div class="col-md-2">
+            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+                <div class="row gap-2">
+                    <div class="col-md-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $salary_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title">Gehalt</h5>
                             <p class="box-description"><?php echo $posting_job_price . $posting_job_currency; ?> / <?php echo $posting_job_per; ?></p>
@@ -113,14 +115,14 @@ function renderHtml($settings){
 
             
             <?php if ($posting_job_expire_date): ?>
-            <div class="col-md-3 position-relative">
+            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $date_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title">Bewerbung bis</h5>
                             <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), 'm-d-Y'); ?></p>
