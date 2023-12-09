@@ -139,7 +139,7 @@ function renderHtml($settings){
 <script type="application/ld+json">
     <?php
     $structured_data = array(
-        "@context" => "https://posting.org/",
+        "@context" => "http://schema.org/",
         "@type" => "JobPosting",
         "title" => $posting_job_title,
         "description" => nl2br($posting_job_description),
