@@ -166,7 +166,7 @@ function listingInfo($that){
     $that->add_control(
         'date_icon',
         [
-            'label' => __( 'Icon', 'text-domain' ),
+            'label' => __( 'Icon', 'elementor-job-posting' ),
             'type' => Controls_Manager::ICONS,
             'default' => [
                 'value' => 'fas fa-calendar-check',
