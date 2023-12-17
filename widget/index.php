@@ -55,17 +55,17 @@ class Elementor_Job_Posting_Widget extends Widget_Base{
     }
 
     public function get_style_depends() {
-        wp_enqueue_style('listing_style', plugins_url('../assets/css/style.css', __FILE__), '', '1.0');
-        wp_enqueue_style('bootstrap_cdn', 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css', array(), '2.3.3');
-        wp_enqueue_style('fontawesome_cdn', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css', array(), '2.3.3');
+        wp_enqueue_style('style_local', plugin_dir_url(__DIR__) . '/assets/css/style.css', array(), '5.2.3');
+        wp_enqueue_style('bootstrap_local', plugin_dir_url(__DIR__) . '/assets/css/bootstrap.min.css', array(), '5.2.3');
+        wp_enqueue_style('fontawesome_local', plugin_dir_url(__DIR__) . '/assets/css/font-awesome.min.css', array(), '6.5.1');
 
-        return ['listing_style', 'bootstrap_cdn', 'fontawesome_cdn'];
+        return ['style_local', 'bootstrap_local', 'fontawesome_local'];
     }
 
     public function get_script_depends() {
-        wp_enqueue_script('listing_script', plugins_url('../assets/js/script.js', __FILE__),  array('jquery'), '1.0');
-
-        return ['listing_script'];
+        wp_enqueue_script('script_local', plugin_dir_url(__DIR__) . '/assets/js/script.css', array(), '5.2.3');
+        
+        return ['script_local'];
     }
 
 

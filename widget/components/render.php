@@ -9,7 +9,7 @@ function renderHtml($settings){
     <div class="job-header">
         <div class="row">
             <div class="col-auto">
-                <img src="<?php echo $posting_job_image['url']; ?>" alt="" class="company-logo" />
+                <img src="<?php echo esc_url( $posting_job_image['url'] ); ?>" alt="" class="company-logo" />
             </div>
 
             <div class="col-md-7">
@@ -48,7 +48,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Remote</h5>
+                            <h5 class="box-title"><?php echo esc_html( 'Remote' ); ?></h5>
                             <p class="box-description">Home Office</p>
                         </div>    
                     </div>
@@ -66,7 +66,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Arbeitsort</h5>
+                            <h5 class="box-title"><?php echo esc_html( 'Arbeitsort' ); ?></h5>
                             <p class="box-description"><?php echo $posting_job_street; ?></p><p class="box-description"><?php echo $posting_job_zip_code . ' ' . $posting_job_city; ?></p>
                         </div>
                     </div>
@@ -85,7 +85,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Anstellungsart</h5>
+                            <h5 class="box-title"><?php echo esc_html( 'Anstellungsart' ); ?></h5>
                             <p class="box-description"><?php echo $posting_job_type; ?></p>
                         </div>
                     </div>
@@ -104,7 +104,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Gehalt</h5>
+                            <h5 class="box-title"><?php echo esc_html( 'Gehalt' ); ?></h5>
                             <p class="box-description"><?php echo $posting_job_price . $posting_job_currency; ?> / <?php echo $posting_job_per; ?></p>
                         </div>
                     </div>
@@ -124,7 +124,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title">Bewerbung bis</h5>
+                            <h5 class="box-title"><?php echo esc_html( 'Bewerbung bis' ); ?></h5>
                             <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), 'd-m-Y'); ?></p>
                         </div>
                     </div>
