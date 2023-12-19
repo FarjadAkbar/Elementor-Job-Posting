@@ -57,7 +57,7 @@ class Elementor_Job_Posting_Widget extends Widget_Base{
     public function get_style_depends() {
         wp_enqueue_style('style_local', plugin_dir_url(__DIR__) . '/assets/css/style.css', array(), '5.2.3');
         wp_enqueue_style('bootstrap_local', plugin_dir_url(__DIR__) . '/assets/css/bootstrap.min.css', array(), '5.2.3');
-        wp_enqueue_style('fontawesome_local', plugin_dir_url(__DIR__) . '/assets/css/font-awesome.min.css', array(), '6.5.1');
+        wp_enqueue_style('fontawesome_local', plugin_dir_url(__DIR__) . '/assets/css/fontawesome/css/all.min.css', array(), '5.2.3');
 
         return ['style_local', 'bootstrap_local', 'fontawesome_local'];
     }

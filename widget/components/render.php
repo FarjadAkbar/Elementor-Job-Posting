@@ -49,7 +49,7 @@ function renderHtml($settings){
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo esc_html( 'Remote' ); ?></h5>
-                            <p class="box-description">Home Office</p>
+                            <p class="box-description"><?php echo esc_html( 'Home Office' ); ?></p>
                         </div>    
                     </div>
                 </div>
