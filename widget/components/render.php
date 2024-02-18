@@ -167,15 +167,26 @@ function renderHtml($settings){
                 "addressCountry" => $posting_job_country
             )
         ) : null,
-        "baseSalary" => (!empty($posting_job_price)) ? array(
-            "@type" => "MonetaryAmount",
-            "currency" => $posting_job_currency,
-            "value" => array(
-                "@type" => "QuantitativeValue",
-                "value" => $posting_job_price,
-                "unitText" => $posting_job_per
-            )
-        ) : null
+        "baseSalary" => (!empty($posting_job_price) && empty($posting_job_max_price)) ? array(
+        "@type" => "MonetaryAmount",
+        "currency" => $posting_job_currency,
+        "value" => array(
+            "@type" => "QuantitativeValue",
+            "value" => $posting_job_price,
+            "unitText" => $posting_job_per
+        )
+        ) : (
+            (!empty($posting_job_price) && !empty($posting_job_max_price)) ? array(
+                "@type" => "MonetaryAmount",
+                "currency" => $posting_job_currency,
+                "value" => array(
+                    "@type" => "QuantitativeValue",
+                    "minValue" => $posting_job_price,
+                    "maxValue" => $posting_job_max_price,
+                    "unitText" => $posting_job_per
+                )
+            ) : null
+        )
     );
 
     // Convert the array to a JSON string using JSON.stringify

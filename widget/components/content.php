@@ -73,7 +73,7 @@ function listingHeader($that){
         [
             'label' => esc_html( 'Post Date' ),
             'type' => Controls_Manager::DATE_TIME,
-            'default' => '2023-11-02 00:00'
+            'default' => date('Y-m-d H:i'), // Set the default value to the current date and time
         ]
     );
     $that->end_controls_section();
@@ -175,7 +175,7 @@ function listingInfo($that){
         ]
     );
 
-    $sevenDaysFromNow = date('Y-m-d H:i', strtotime('+7 days'));
+    $sevenDaysFromNow = date('Y-m-d H:i', strtotime('+3 months'));
     $that->add_control(
         'posting_job_expire_date',
         [
@@ -318,6 +318,20 @@ function listingInfo($that){
             'default' => 1000,
         ]
     );
+
+    
+    $that->add_control(
+        'posting_job_max_price',
+        [
+            'label' => esc_html( 'Höhe des Höchstgehalts' ),
+            'type' => Controls_Manager::NUMBER,
+            'min' => 1,
+            'max' => 100000,
+            'step' => 1,
+            'default' => 5000,
+        ]
+    );
+
     $that->add_control(
         'posting_job_currency',
         [
