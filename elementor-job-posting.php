@@ -8,7 +8,7 @@
  * Plugin Name: Elementor Job Posting
  * Description: Dieses Elementor Addon fügt deiner Jobseite automatisch Strukturierte Daten / Schema Markup für JobPostings hinzu.
  * Plugin URI:  https://github.com/FarjadAkbar/Elementor-Job-Posting.git
- * Version:     1.1.6
+ * Version:     1.1.7
  * Author:      Farjad Akbar
  * Author URI:  https://www.seohit.de/
  * Text Domain: elementor-job-posting

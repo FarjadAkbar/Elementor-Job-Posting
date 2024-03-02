@@ -238,7 +238,7 @@ function listingInfo($that){
         'posting_job_country',
         [
             'label' => esc_html( 'Land' ),
-            'type' => Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT2,
             'default' => 'Deutschland',
             'options' => [
                 '' => esc_html( 'None' ),
@@ -597,10 +597,9 @@ function listingInfo($that){
         'posting_job_currency',
         [
             'label' => esc_html( 'Währung' ),
-            'type' => Controls_Manager::SELECT,
+            'type' => Controls_Manager::SELECT2,
             'default' => '€',
             'options' => [
-            
                 '' => esc_html( 'None' ),
                 "AED" => "United Arab Emirates dirham",
     "AFN" => "Afghan afghani",

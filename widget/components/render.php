@@ -3,6 +3,10 @@ use Elementor\Icons_Manager;
 
 function renderHtml($settings){
     extract($settings);
+    $date_formatting = 'm/d/Y';
+    if($posting_job_country == 'DE'){
+        $date_formatting = 'd.m.Y';
+    }
     ?>
 <div class="container job-listing-container m-0 p-0">
 
@@ -17,7 +21,7 @@ function renderHtml($settings){
                     <?php Icons_Manager::render_icon( $date_post_icon, [ 'aria-hidden' => 'true' ] ); ?>
                     <?php
                     if (!empty($posting_job_post_date)) {
-                        echo date_format(date_create($posting_job_expire_date), 'd-m-Y');
+                        echo date_format(date_create($posting_job_expire_date), $date_formatting);
                     } else {
                         echo '-';
                     }
@@ -124,7 +128,7 @@ function renderHtml($settings){
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo esc_html( 'Bewerbung bis' ); ?></h5>
-                            <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), 'd-m-Y'); ?></p>
+                            <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), $date_formatting); ?></p>
                         </div>
                     </div>
                 </div>
