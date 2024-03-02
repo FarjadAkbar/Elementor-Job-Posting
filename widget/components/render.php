@@ -17,8 +17,7 @@ function renderHtml($settings){
                     <?php Icons_Manager::render_icon( $date_post_icon, [ 'aria-hidden' => 'true' ] ); ?>
                     <?php
                     if (!empty($posting_job_post_date)) {
-                        $date = new DateTime($posting_job_post_date);
-                        echo $date->format("d F, Y");
+                        echo date_format(date_create($posting_job_expire_date), 'd-m-Y');
                     } else {
                         echo '-';
                     }
