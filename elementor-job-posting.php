@@ -28,7 +28,7 @@ $updateChecker = PucFactory::buildUpdateChecker(
 	'elementor-job-posting'
 );
 $updateChecker->setBranch('main');
-$updateChecker->setAuthentication('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');
+$updateChecker->setAuthentication('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');
 
 
 function register_schema_widget($widgets_manager)
