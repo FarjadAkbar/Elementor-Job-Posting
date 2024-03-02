@@ -234,16 +234,43 @@ function listingInfoStyle($that){
             'separator' => 'before',
         ]
     );
+
     
-    slider($that, 'infobox_icon_size', 'Icon Size', '.info-box .at-icon-box-icon', 'font-size');
-    color($that, 'infobox_icon_color', 'Icon Color', '.info-box .at-icon-box-icon', 'color');
+    $that->add_responsive_control(
+        'posting_infobox_icon_size',
+        [
+            'label' => 'Size',
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => [ 'px' ],
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 100,
+                    'step' => 1,
+                ],
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .info-box .at-icon-box-icon i, {{WRAPPER}} .info-box .at-icon-box-icon svg'  => 'font-size: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}}; width: {{SIZE}}{{UNIT}}',
+            ],
+        ]
+    );
+    $that->add_responsive_control(
+        'posting_infobox_icon_color',
+        [
+            'label' => 'Color',
+            'type' => Controls_Manager::COLOR,
+            'selectors' => [
+                '{{WRAPPER}} .info-box .at-icon-box-icon i, {{WRAPPER}} .info-box .at-icon-box-icon svg' => 'color: {{VALUE}}; fill: {{VALUE}};',
+            ],
+        ]
+    );
 
 
 
     add_background_border_control($that, 'posting_infobox_icon', 'Icon', '.info-box .at-icon-box-icon');
 
-    slider($that, 'infobox_icon_width', 'Icon Width', '.info-box .at-icon-box-icon', 'width');
-    slider($that, 'infobox_icon_height', 'Icon Height', '.info-box .at-icon-box-icon', 'height');
+    slider($that, 'infobox_icon_width', 'Icon Box Width', '.info-box .at-icon-box-icon', 'width');
+    slider($that, 'infobox_icon_height', 'Icon Box Height', '.info-box .at-icon-box-icon', 'height');
 
  
     dimension($that, 'infobox_icon_padding', 'Padding', '.info-box .at-icon-box-icon', 'padding');
