@@ -7,6 +7,13 @@ function renderHtml($settings){
     if($posting_job_country == 'DE'){
         $date_formatting = 'd.m.Y';
     }
+
+    $custom_word_12 = get_option('elementor_job_posting_custom_word_12');
+    $custom_word_13 = get_option('elementor_job_posting_custom_word_13');
+    $custom_word_14 = get_option('elementor_job_posting_custom_word_14');
+    $custom_word_15 = get_option('elementor_job_posting_custom_word_15');
+    $custom_word_16 = get_option('elementor_job_posting_custom_word_16');
+    $custom_word_17 = get_option('elementor_job_posting_custom_word_17');
     ?>
 <div class="container job-listing-container m-0 p-0">
 
@@ -51,8 +58,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo esc_html( 'Remote' ); ?></h5>
-                            <p class="box-description"><?php echo esc_html( 'Home Office' ); ?></p>
+                            <h5 class="box-title"><?php echo !empty($custom_word_12) ? $custom_word_12 : 'Remote'; ?></h5>
+                            <p class="box-description"><?php echo !empty($custom_word_13) ? $custom_word_13 : 'Home Office'; ?></p>
                         </div>    
                     </div>
                 </div>
@@ -69,7 +76,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo esc_html( 'Arbeitsort' ); ?></h5>
+                            <h5 class="box-title"><?php echo !empty($custom_word_14) ? $custom_word_14 : 'Arbeitsort'; ?></h5>
                             <p class="box-description"><?php echo $posting_job_street; ?></p><p class="box-description"><?php echo $posting_job_zip_code . ' ' . $posting_job_city; ?></p>
                         </div>
                     </div>
@@ -88,7 +95,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo esc_html( 'Anstellungsart' ); ?></h5>
+                            <h5 class="box-title"><?php echo !empty($custom_word_15) ? $custom_word_15 : 'Anstellungsart'; ?></h5>
                             <p class="box-description"><?php echo $posting_job_type; ?></p>
                         </div>
                     </div>
@@ -107,7 +114,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo esc_html( 'Gehalt' ); ?></h5>
+                            <h5 class="box-title"><?php echo !empty($custom_word_16) ? $custom_word_16 : 'Gehalt'; ?></h5>
                             <p class="box-description"><?php echo $posting_job_price . $posting_job_currency; ?> / <?php echo $posting_job_per; ?></p>
                         </div>
                     </div>
@@ -127,7 +134,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo esc_html( 'Bewerbung bis' ); ?></h5>
+                            <h5 class="box-title"><?php echo !empty($custom_word_17) ? $custom_word_17 : 'Bewerbung bis'; ?></h5>
                             <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), $date_formatting); ?></p>
                         </div>
                     </div>

@@ -104,6 +104,35 @@ function listingContent($that){
 
 
 function listingInfo($that){
+    $custom_word_0 = get_option('elementor_job_posting_custom_word_0');
+    $custom_word_1 = get_option('elementor_job_posting_custom_word_1');
+    $custom_word_2 = get_option('elementor_job_posting_custom_word_2');
+    $custom_word_3 = get_option('elementor_job_posting_custom_word_3');
+    $custom_word_4 = get_option('elementor_job_posting_custom_word_4');
+    $custom_word_5 = get_option('elementor_job_posting_custom_word_5');
+    $custom_word_6 = get_option('elementor_job_posting_custom_word_6');
+    $custom_word_7 = get_option('elementor_job_posting_custom_word_7');
+
+    $custom_word_8 = get_option('elementor_job_posting_custom_word_8');
+    $custom_word_9 = get_option('elementor_job_posting_custom_word_9');
+    $custom_word_10 = get_option('elementor_job_posting_custom_word_10');
+    $custom_word_11 = get_option('elementor_job_posting_custom_word_11');
+
+    $vollzeit = !empty($custom_word_0) ? $custom_word_0 : 'Vollzeit';
+    $teilzeit = !empty($custom_word_1) ? $custom_word_1 : 'Teilzeit';
+    $auftragnehmer = !empty($custom_word_2) ? $custom_word_2 : 'Auftragnehmer';
+    $befristete = !empty($custom_word_3) ? $custom_word_3 : 'Befristete Stelle';
+    $praktikum = !empty($custom_word_4) ? $custom_word_4 : 'Praktikum';
+    $voluntär = !empty($custom_word_5) ? $custom_word_5 : 'Voluntär';
+    $tagesjob = !empty($custom_word_6) ? $custom_word_6 : 'Tagesjob';
+    $sonstiges = !empty($custom_word_7) ? $custom_word_7 : 'Sonstiges';
+
+    $stunde = !empty($custom_word_8) ? $custom_word_8 : 'Stunde';
+    $woche = !empty($custom_word_9) ? $custom_word_9 : 'Woche';
+    $monat = !empty($custom_word_10) ? $custom_word_10 : 'Monat';
+    $jahr = !empty($custom_word_11) ? $custom_word_11 : 'Jahr';
+    
+
     $that->start_controls_section(
         'info_section',
         [
@@ -139,17 +168,17 @@ function listingInfo($that){
         [
             'label' => esc_html( 'Anstellungsart' ),
             'type' => Controls_Manager::SELECT,
-            'default' => 'Vollzeit',
+            'default' => $vollzeit,
             'options' => [
                 '' => esc_html( 'None' ),
-                'Vollzeit' => esc_html( 'Vollzeit' ),
-                'Teilzeit'  => esc_html( 'Teilzeit' ),
-                'Auftragnehmer' => esc_html( 'Auftragnehmer' ),
-                'Befristete Stelle' => esc_html( 'Befristete Stelle' ),
-                'Praktikum' => esc_html( 'Praktikum' ),
-                'Voluntär' => esc_html( 'Voluntär' ),
-                'Tagesjob' => esc_html( 'Tagesjob' ),
-                'Sonstiges' => esc_html( 'Sonstiges' ),
+                    $vollzeit => $vollzeit,
+                    $teilzeit  => $teilzeit,
+                    $auftragnehmer => $auftragnehmer,
+                    $befristete => $befristete,
+                    $praktikum => $praktikum,
+                    $voluntär => $voluntär,
+                    $tagesjob => $tagesjob,
+                    $sonstiges => $sonstiges,
             ],
         ]
     );
@@ -772,13 +801,13 @@ function listingInfo($that){
         [
             'label' => esc_html( 'Gehalt pro' ),
             'type' => Controls_Manager::SELECT,
-            'default' => 'Stunde',
+            'default' => $stunde,
             'options' => [
                 '' => esc_html( 'None' ),
-                'Stunde' => esc_html( 'Stunde' ),
-                'Woche'  => esc_html( 'Woche' ),
-                'Monat'  => esc_html( 'Monat' ),
-                'Jahr'  => esc_html( 'Jahr' ),
+                $stunde => $stunde,
+                $woche => $woche,
+                $monat => $monat,
+                $jahr => $jahr,
             ],
         ]
     );

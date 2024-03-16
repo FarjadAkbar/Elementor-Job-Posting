@@ -8,7 +8,7 @@
  * Plugin Name: Elementor Job Posting
  * Description: Dieses Elementor Addon fügt deiner Jobseite automatisch Strukturierte Daten / Schema Markup für JobPostings hinzu.
  * Plugin URI:  https://github.com/FarjadAkbar/Elementor-Job-Posting.git
- * Version:     1.1.7
+ * Version:     1.1.8
  * Author:      Farjad Akbar
  * Author URI:  https://www.seohit.de/
  * Text Domain: elementor-job-posting
@@ -28,6 +28,76 @@ $updateChecker = PucFactory::buildUpdateChecker(
 	'elementor-job-posting'
 );
 $updateChecker->setBranch('main');
+
+// Step 1: Create a settings page in WordPress admin
+function elementor_job_posting_settings_page() {
+    add_options_page( 'Elementor Job Posting Settings', 'Elementor Job Posting', 'manage_options', 'elementor-job-posting-settings', 'elementor_job_posting_settings_page_content' );
+}
+add_action( 'admin_menu', 'elementor_job_posting_settings_page' );
+
+// Step 2: Add fields to input custom words
+function elementor_job_posting_settings_page_content() {
+    ?>
+    <div class="wrap">
+        <h2>Elementor Job Posting Settings</h2>
+        <form method="post" action="options.php">
+            <?php settings_fields( 'elementor-job-posting-settings-group' ); ?>
+            <?php do_settings_sections( 'elementor-job-posting-settings-group' ); ?>
+            <input type="submit" class="button-primary" value="Save Changes">
+        </form>
+    </div>
+    <?php
+}
+
+function elementor_job_posting_settings_section_callback() {
+    echo '<p>Enter custom words separated by comma.</p>';
+}
+
+function elementor_job_posting_settings_init() {
+    $arr = [
+    'Vollzeit',
+    'Teilzeit',
+    'Auftragnehmer',
+    'Befristete Stelle',
+    'Praktikum',
+    'Voluntär',
+    'Tagesjob',
+    'Sonstiges',
+    'Stunde',
+    'Woche',
+    'Monat',
+    'Jahr',
+    'Remote',
+    'Home Office',
+    'Arbeitsort',
+    'Anstellungsart',
+    'Gehalt',
+    'Bewerbung bis'
+];
+
+    // Register settings for each custom word
+    foreach ($arr as $key => $value) {
+        register_setting('elementor-job-posting-settings-group', "elementor_job_posting_custom_word_$key");
+    }
+
+    add_settings_section('elementor-job-posting-settings-section', 'Custom Words', 'elementor_job_posting_settings_section_callback', 'elementor-job-posting-settings-group');
+
+    // Add settings fields for each custom word
+    foreach ($arr as $key => $value) {
+        add_settings_field(
+            "elementor-job-posting-custom-word-$key-field",
+            $value,
+            function() use ($key) {
+                $custom_word = get_option("elementor_job_posting_custom_word_$key");
+                echo '<input type="text" name="elementor_job_posting_custom_word_' . $key . '" value="' . esc_attr($custom_word) . '">';
+            },
+            'elementor-job-posting-settings-group',
+            'elementor-job-posting-settings-section'
+        );
+    }
+}
+add_action('admin_init', 'elementor_job_posting_settings_init');
+
 
 function register_schema_widget($widgets_manager)
 {
