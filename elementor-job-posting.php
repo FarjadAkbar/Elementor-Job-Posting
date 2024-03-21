@@ -8,7 +8,7 @@
  * Plugin Name: Elementor Job Posting
  * Description: Dieses Elementor Addon fügt deiner Jobseite automatisch Strukturierte Daten / Schema Markup für JobPostings hinzu.
  * Plugin URI:  https://github.com/FarjadAkbar/Elementor-Job-Posting.git
- * Version:     1.1.8
+ * Version:     1.1.9
  * Author:      Farjad Akbar
  * Author URI:  https://www.seohit.de/
  * Text Domain: elementor-job-posting
@@ -55,24 +55,31 @@ function elementor_job_posting_settings_section_callback() {
 
 function elementor_job_posting_settings_init() {
     $arr = [
-    'Vollzeit',
-    'Teilzeit',
-    'Auftragnehmer',
-    'Befristete Stelle',
-    'Praktikum',
-    'Voluntär',
-    'Tagesjob',
-    'Sonstiges',
-    'Stunde',
-    'Woche',
-    'Monat',
-    'Jahr',
+    'Full time',
+    'Part time',
+    'Contractor',
+    'Temporary position',
+    'Practice',
+    'Volunteer',
+    'Day job',
+    'Miscellaneous',
+    'Hour',
+    'Week',
+    'Month',
+    'Year',
     'Remote',
     'Home Office',
-    'Arbeitsort',
-    'Anstellungsart',
-    'Gehalt',
-    'Bewerbung bis'
+    'Work Place',
+    'Employment type',
+    'Salary',
+    'Application Until',
+    'Further information',
+    'Duration',
+    'Country',
+    'Street',
+    'City',
+    'Postal Code',
+    'Currency'
 ];
 
     // Register settings for each custom word

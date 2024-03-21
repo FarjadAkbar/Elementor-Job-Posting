@@ -76,7 +76,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo !empty($custom_word_14) ? $custom_word_14 : 'Arbeitsort'; ?></h5>
+                            <h5 class="box-title"><?php echo !empty($custom_word_14) ? $custom_word_14 : 'Work Place'; ?></h5>
                             <p class="box-description"><?php echo $posting_job_street; ?></p><p class="box-description"><?php echo $posting_job_zip_code . ' ' . $posting_job_city; ?></p>
                         </div>
                     </div>
@@ -95,7 +95,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo !empty($custom_word_15) ? $custom_word_15 : 'Anstellungsart'; ?></h5>
+                            <h5 class="box-title"><?php echo !empty($custom_word_15) ? $custom_word_15 : 'Employment type'; ?></h5>
                             <p class="box-description"><?php echo $posting_job_type; ?></p>
                         </div>
                     </div>
@@ -114,7 +114,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo !empty($custom_word_16) ? $custom_word_16 : 'Gehalt'; ?></h5>
+                            <h5 class="box-title"><?php echo !empty($custom_word_16) ? $custom_word_16 : 'Salary'; ?></h5>
                             <p class="box-description"><?php echo $posting_job_price . $posting_job_currency; ?> / <?php echo $posting_job_per; ?></p>
                         </div>
                     </div>
@@ -134,7 +134,7 @@ function renderHtml($settings){
                     </div>
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
-                            <h5 class="box-title"><?php echo !empty($custom_word_17) ? $custom_word_17 : 'Bewerbung bis'; ?></h5>
+                            <h5 class="box-title"><?php echo !empty($custom_word_17) ? $custom_word_17 : 'Application Until'; ?></h5>
                             <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), $date_formatting); ?></p>
                         </div>
                     </div>

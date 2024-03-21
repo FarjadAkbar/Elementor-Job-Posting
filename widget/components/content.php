@@ -8,7 +8,7 @@ function listingHeader($that){
     $that->start_controls_section(
         'header_section',
         [
-            'label' => esc_html( 'Kopfzeile' ),
+            'label' => esc_html( 'Header' ),
             'tab' => Controls_Manager::TAB_CONTENT,
         ]
     );
@@ -38,7 +38,6 @@ function listingHeader($that){
         [
             'label' => esc_html( 'Company URL' ),
             'type' => Controls_Manager::URL,
-            'placeholder' => esc_html( 'URL der Firma' ),
             'options' => [ 'url', 'is_external', 'nofollow' ],
             'label_block' => true,
         ]
@@ -47,7 +46,7 @@ function listingHeader($that){
     $that->add_control(
         'posting_job_image',
         [
-            'label' => esc_html( 'Logo wählen'),
+            'label' => esc_html( 'Choose logo'),
             'type' => Controls_Manager::MEDIA,
             'default' => [
                 'url' => Utils::get_placeholder_image_src(),
@@ -83,7 +82,7 @@ function listingContent($that){
     $that->start_controls_section(
         'content_section',
         [
-            'label' => esc_html( 'Job Beschreibung' ),
+            'label' => esc_html( 'Job Description' ),
             'tab' => Controls_Manager::TAB_CONTENT,
         ]
     );
@@ -117,26 +116,51 @@ function listingInfo($that){
     $custom_word_9 = get_option('elementor_job_posting_custom_word_9');
     $custom_word_10 = get_option('elementor_job_posting_custom_word_10');
     $custom_word_11 = get_option('elementor_job_posting_custom_word_11');
+    $custom_word_12 = get_option('elementor_job_posting_custom_word_12');
+    $custom_word_13 = get_option('elementor_job_posting_custom_word_13');
+    $custom_word_14 = get_option('elementor_job_posting_custom_word_14');
+    $custom_word_15 = get_option('elementor_job_posting_custom_word_15');
+    $custom_word_16 = get_option('elementor_job_posting_custom_word_16');
+    $custom_word_17 = get_option('elementor_job_posting_custom_word_17');
+    $custom_word_18 = get_option('elementor_job_posting_custom_word_18');
+    $custom_word_19 = get_option('elementor_job_posting_custom_word_19');
+    $custom_word_20 = get_option('elementor_job_posting_custom_word_20');
+    $custom_word_21 = get_option('elementor_job_posting_custom_word_21');
+    $custom_word_22 = get_option('elementor_job_posting_custom_word_22');
+    $custom_word_23 = get_option('elementor_job_posting_custom_word_23');
+    $custom_word_24 = get_option('elementor_job_posting_custom_word_24');
 
-    $vollzeit = !empty($custom_word_0) ? $custom_word_0 : 'Vollzeit';
-    $teilzeit = !empty($custom_word_1) ? $custom_word_1 : 'Teilzeit';
-    $auftragnehmer = !empty($custom_word_2) ? $custom_word_2 : 'Auftragnehmer';
-    $befristete = !empty($custom_word_3) ? $custom_word_3 : 'Befristete Stelle';
-    $praktikum = !empty($custom_word_4) ? $custom_word_4 : 'Praktikum';
-    $voluntär = !empty($custom_word_5) ? $custom_word_5 : 'Voluntär';
-    $tagesjob = !empty($custom_word_6) ? $custom_word_6 : 'Tagesjob';
-    $sonstiges = !empty($custom_word_7) ? $custom_word_7 : 'Sonstiges';
+    $full_time = !empty($custom_word_0) ? $custom_word_0 : 'Full time';
+    $part_time = !empty($custom_word_1) ? $custom_word_1 : 'Part time';
+    $contractor = !empty($custom_word_2) ? $custom_word_2 : 'Contractor';
+    $temporary_position = !empty($custom_word_3) ? $custom_word_3 : 'Temporary position';
+    $practice = !empty($custom_word_4) ? $custom_word_4 : 'Practice';
+    $volunteer = !empty($custom_word_5) ? $custom_word_5 : 'Volunteer';
+    $day_job = !empty($custom_word_6) ? $custom_word_6 : 'Day job';
+    $miscellaneous = !empty($custom_word_7) ? $custom_word_7 : 'Miscellaneous';
 
-    $stunde = !empty($custom_word_8) ? $custom_word_8 : 'Stunde';
-    $woche = !empty($custom_word_9) ? $custom_word_9 : 'Woche';
-    $monat = !empty($custom_word_10) ? $custom_word_10 : 'Monat';
-    $jahr = !empty($custom_word_11) ? $custom_word_11 : 'Jahr';
+    $hour = !empty($custom_word_8) ? $custom_word_8 : 'Hour';
+    $week = !empty($custom_word_9) ? $custom_word_9 : 'Week';
+    $month = !empty($custom_word_10) ? $custom_word_10 : 'Month';
+    $year = !empty($custom_word_11) ? $custom_word_11 : 'Year';
     
+    $work_place =  !empty($custom_word_14) ? $custom_word_14 : 'Work Place';
+    $remote = !empty($custom_word_12) ? $custom_word_12 : 'Remote';
+    $employment_type = !empty($custom_word_15) ? $custom_word_15 : 'Employment type';
+    $salary = !empty($custom_word_16) ? $custom_word_16 : 'Salary';
+    $appliction_until = !empty($custom_word_17) ? $custom_word_17 : 'Application Until';
+    $further_information = !empty($custom_word_18) ? $custom_word_18 : 'Further information';
+    $duration = !empty($custom_word_19) ? $custom_word_19 : 'Duration';
+    $country = !empty($custom_word_20) ? $custom_word_20 : 'Country';
+    $street = !empty($custom_word_21) ? $custom_word_21 : 'Street';
+    $city = !empty($custom_word_22) ? $custom_word_22 : 'City';
+    $postal_code = !empty($custom_word_23) ? $custom_word_23 : 'Postal Code';
+    $currency = !empty($custom_word_24) ? $custom_word_24 : 'Currency';
 
     $that->start_controls_section(
         'info_section',
         [
-            'label' => esc_html( 'Weitere Infos' ),
+            'label' => esc_html( $further_information ),
             'tab' => Controls_Manager::TAB_CONTENT,
         ]
     );
@@ -144,7 +168,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_heading_type',
         [
-            'label' => esc_html( 'Anstellungsart' ),
+            'label' => esc_html($employment_type),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -166,19 +190,19 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_type',
         [
-            'label' => esc_html( 'Anstellungsart' ),
+            'label' => esc_html($employment_type),
             'type' => Controls_Manager::SELECT,
-            'default' => $vollzeit,
+            'default' => $full_time,
             'options' => [
                 '' => esc_html( 'None' ),
-                    $vollzeit => $vollzeit,
-                    $teilzeit  => $teilzeit,
-                    $auftragnehmer => $auftragnehmer,
-                    $befristete => $befristete,
-                    $praktikum => $praktikum,
-                    $voluntär => $voluntär,
-                    $tagesjob => $tagesjob,
-                    $sonstiges => $sonstiges,
+                    $full_time => $full_time,
+                    $part_time  => $part_time,
+                    $contractor => $contractor,
+                    $temporary_position => $temporary_position,
+                    $practice => $practice,
+                    $volunteer => $volunteer,
+                    $day_job => $day_job,
+                    $miscellaneous => $miscellaneous,
             ],
         ]
     );
@@ -187,7 +211,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_heading_date',
         [
-            'label' => esc_html( 'Laufzeit' ),
+            'label' => esc_html( $duration ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -208,7 +232,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_expire_date',
         [
-            'label' => esc_html( 'Bewerbung bis' ),
+            'label' => esc_html($appliction_until),
             'type' => Controls_Manager::DATE_TIME,
             'default' => $sevenDaysFromNow
         ]    
@@ -220,7 +244,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_heading_location',
         [
-            'label' => esc_html( 'Arbeitsort' ),
+            'label' => esc_html($work_place),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -254,7 +278,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_remote',
         [
-            'label' => esc_html( 'Remote' ),
+            'label' => esc_html($remote),
             'type' => Controls_Manager::SWITCHER,
             'label_on' => esc_html( 'Yes' ),
             'label_off' => esc_html( 'No' ),
@@ -266,7 +290,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_country',
         [
-            'label' => esc_html( 'Land' ),
+            'label' => esc_html($country),
             'type' => Controls_Manager::SELECT2,
             'default' => 'Deutschland',
             'options' => [
@@ -542,10 +566,9 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_street',
         [
-            'label' => esc_html( 'Straße' ),
+            'label' => esc_html( $street ),
             'type' => Controls_Manager::TEXT,
-            'default' => esc_html( 'Straße' ),
-            'placeholder' => esc_html( 'Straße' ),
+            'default' => esc_html( $street ),
             'condition' => [
                 'posting_job_remote' => '',
             ],
@@ -555,10 +578,9 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_city',
         [
-            'label' => esc_html( 'Stadt' ),
+            'label' => esc_html( $city ),
             'type' => Controls_Manager::TEXT,
-            'default' => esc_html( 'Stadt' ),
-            'placeholder' => esc_html( 'Stadt' ),
+            'default' => esc_html( $city ),
             'condition' => [
                 'posting_job_remote' => '',
             ],
@@ -568,9 +590,8 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_zip_code',
         [
-            'label' => esc_html( 'PLZ' ),
+            'label' => esc_html( $postal_code ),
             'type' => Controls_Manager::TEXT,
-            'placeholder' => esc_html( 'Postleitzahl' ),
             'condition' => [
                 'posting_job_remote' => '',
             ],
@@ -580,7 +601,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_heading_pricing',
         [
-            'label' => esc_html( 'Gehalt' ),            
+            'label' => esc_html($salary),            
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -600,7 +621,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_price',
         [
-            'label' => esc_html( 'Gehalts (Minimum / Standard)' ),
+            'label' => esc_html( $salary.' (Minimum / Standard)' ),
             'type' => Controls_Manager::NUMBER,
             'min' => 1,
             'max' => 100000,
@@ -613,7 +634,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_max_price',
         [
-            'label' => esc_html( 'Gehalts (Minimum / Optional)' ),
+            'label' => esc_html( $salary . ' (Minimum / Optional)' ),
             'type' => Controls_Manager::NUMBER,
             'min' => 1,
             'max' => 100000,
@@ -625,7 +646,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_currency',
         [
-            'label' => esc_html( 'Währung' ),
+            'label' => esc_html( $currency ),
             'type' => Controls_Manager::SELECT2,
             'default' => '€',
             'options' => [
@@ -799,15 +820,15 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_per',
         [
-            'label' => esc_html( 'Gehalt pro' ),
+            'label' => esc_html( $salary . ' pro' ),
             'type' => Controls_Manager::SELECT,
-            'default' => $stunde,
+            'default' => $hour,
             'options' => [
                 '' => esc_html( 'None' ),
-                $stunde => $stunde,
-                $woche => $woche,
-                $monat => $monat,
-                $jahr => $jahr,
+                $hour => $hour,
+                $week => $week,
+                $month => $month,
+                $year => $year,
             ],
         ]
     );

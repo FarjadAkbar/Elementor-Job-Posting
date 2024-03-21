@@ -101,7 +101,7 @@ function listingHeaderStyle($that){
     $that->start_controls_section(
         'posting_header',
         [
-            'label' => esc_html( 'Kopfzeile' ),
+            'label' => esc_html( 'Header' ),
             'tab' => Controls_Manager::TAB_STYLE,
         ]
     );
@@ -181,7 +181,7 @@ function listingContentStyle($that){
     $that->start_controls_section(
         'posting_style_content',
         [
-            'label' => esc_html( 'Job Beschreibung' ),
+            'label' => esc_html( 'Job Description' ),
             'tab' => Controls_Manager::TAB_STYLE,
         ]
     );
@@ -206,10 +206,12 @@ function listingContentStyle($that){
 
 // More Info
 function listingInfoStyle($that){
+    $custom_word_17 = get_option('elementor_job_posting_custom_word_17');
+    $further_information = !empty($custom_word_17) ? $custom_word_17 : 'Further information';
     $that->start_controls_section(
         'posting_more_infobox',
         [
-            'label' => esc_html( 'Weitere Infos' ),
+            'label' => esc_html( $further_information ),
             'tab' => Controls_Manager::TAB_STYLE,
         ]
     );
