@@ -1,12 +1,46 @@
 <?php
 use Elementor\Icons_Manager;
 
+
+function dateformating($date, $date_formatting){
+    $date = date_create($date);
+    $formatted_date = '';
+
+    switch ($date_formatting) {
+        case 'mm/dd/yyyy':
+            $formatted_date = date_format($date, 'm/d/Y');
+            break;
+        case 'yyyy/mm/dd':
+            $formatted_date = date_format($date, 'Y/m/d');
+            break;
+        case 'dd-mm-yyyy':
+            $formatted_date = date_format($date, 'd-m-Y');
+            break;
+        case 'mm-dd-yyyy':
+            $formatted_date = date_format($date, 'm-d-Y');
+            break;
+        case 'yyyy-mm-dd':
+            $formatted_date = date_format($date, 'Y-m-d');
+            break;
+        case 'dd.mm.yyyy':
+            $formatted_date = date_format($date, 'd.m.Y');
+            break;
+        case 'mm.dd.yyyy':
+            $formatted_date = date_format($date, 'm.d.Y');
+            break;
+        case 'yyyy.mm.dd':
+            $formatted_date = date_format($date, 'Y.m.d');
+            break;
+        default:
+            $formatted_date = date_format($date, 'd/m/Y'); // Default format
+            break;
+    }
+
+    echo $formatted_date;    
+}
 function renderHtml($settings){
     extract($settings);
-    $date_formatting = 'm/d/Y';
-    if($posting_job_country == 'DE'){
-        $date_formatting = 'd.m.Y';
-    }
+    
 
     $custom_word_12 = get_option('elementor_job_posting_custom_word_12');
     $custom_word_13 = get_option('elementor_job_posting_custom_word_13');
@@ -28,7 +62,7 @@ function renderHtml($settings){
                     <?php Icons_Manager::render_icon( $date_post_icon, [ 'aria-hidden' => 'true' ] ); ?>
                     <?php
                     if (!empty($posting_job_post_date)) {
-                        echo date_format(date_create($posting_job_expire_date), $date_formatting);
+                        echo dateformating($posting_job_expire_date, $posting_job_date_format);
                     } else {
                         echo '-';
                     }
@@ -135,7 +169,7 @@ function renderHtml($settings){
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo !empty($custom_word_17) ? $custom_word_17 : 'Application Until'; ?></h5>
-                            <p class="box-description"><?php echo date_format(date_create($posting_job_expire_date), $date_formatting); ?></p>
+                            <p class="box-description"><?php echo dateformating($posting_job_expire_date, $posting_job_date_format); ?></p>
                         </div>
                     </div>
                 </div>
@@ -160,8 +194,8 @@ function renderHtml($settings){
             "logo" => (!empty($posting_job_image['url'])) ? $posting_job_image['url'] : null
         ),
         "employmentType" => (!empty($posting_job_image['url'])) ? $posting_job_type : null,
-        "datePosted" => date_format(date_create($posting_job_post_date), 'Y/m/d H:i:s'),
-        "validThrough" => date_format(date_create($posting_job_expire_date), 'Y/m/d H:i:s'),
+        "datePosted" => dateformating($posting_job_post_date, $posting_job_date_format),
+        "validThrough" => dateformating($posting_job_expire_date, $posting_job_date_format),
         "applicantLocationRequirements" => array(
             "@type" => "Country",
             "name" => ($posting_job_remote == 'yes') ? $posting_job_country : null

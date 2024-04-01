@@ -75,6 +75,29 @@ function listingHeader($that){
             'default' => date('Y-m-d H:i'), // Set the default value to the current date and time
         ]
     );
+    $that->add_control(
+        'posting_job_date_format',
+        [
+            'label' => esc_html('Date Format'),
+            'type' => Controls_Manager::SELECT,
+            'description' => esc_html('Choose the appropriate date format for your country'),
+            'default' => 'dd/mm/yyyy',
+            'options' => [
+                'dd/mm/yyyy' => 'dd/mm/yyyy',
+                'mm/dd/yyyy' => 'mm/dd/yyyy',
+                'yyyy/mm/dd' => 'yyyy/mm/dd',
+                
+                'dd-mm-yyyy' => 'dd-mm-yyyy',
+                'mm-dd-yyyy' => 'mm-dd-yyyy',
+                'yyyy-mm-dd' => 'yyyy-mm-dd',
+                
+                'dd.mm.yyyy' => 'dd.mm.yyyy',
+                'mm.dd.yyyy' => 'mm.dd.yyyy',
+                'yyyy.mm.dd' => 'yyyy.mm.dd',
+            ],
+        ]
+    );
+
     $that->end_controls_section();
 }
 
@@ -149,18 +172,12 @@ function listingInfo($that){
     $employment_type = !empty($custom_word_15) ? $custom_word_15 : 'Employment type';
     $salary = !empty($custom_word_16) ? $custom_word_16 : 'Salary';
     $appliction_until = !empty($custom_word_17) ? $custom_word_17 : 'Application Until';
-    $further_information = !empty($custom_word_18) ? $custom_word_18 : 'Further information';
-    $duration = !empty($custom_word_19) ? $custom_word_19 : 'Duration';
-    $country = !empty($custom_word_20) ? $custom_word_20 : 'Country';
-    $street = !empty($custom_word_21) ? $custom_word_21 : 'Street';
-    $city = !empty($custom_word_22) ? $custom_word_22 : 'City';
-    $postal_code = !empty($custom_word_23) ? $custom_word_23 : 'Postal Code';
-    $currency = !empty($custom_word_24) ? $custom_word_24 : 'Currency';
+    
 
     $that->start_controls_section(
         'info_section',
         [
-            'label' => esc_html( $further_information ),
+            'label' => esc_html( 'Further information' ),
             'tab' => Controls_Manager::TAB_CONTENT,
         ]
     );
@@ -211,7 +228,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_heading_date',
         [
-            'label' => esc_html( $duration ),
+            'label' => esc_html( 'Duration' ),
             'type' => Controls_Manager::HEADING,
             'separator' => 'before',
         ]
@@ -290,7 +307,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_country',
         [
-            'label' => esc_html($country),
+            'label' => esc_html('Country'),
             'type' => Controls_Manager::SELECT2,
             'default' => 'Deutschland',
             'options' => [
@@ -566,9 +583,8 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_street',
         [
-            'label' => esc_html( $street ),
+            'label' => esc_html( 'Street' ),
             'type' => Controls_Manager::TEXT,
-            'default' => esc_html( $street ),
             'condition' => [
                 'posting_job_remote' => '',
             ],
@@ -578,9 +594,8 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_city',
         [
-            'label' => esc_html( $city ),
+            'label' => esc_html( 'City' ),
             'type' => Controls_Manager::TEXT,
-            'default' => esc_html( $city ),
             'condition' => [
                 'posting_job_remote' => '',
             ],
@@ -590,7 +605,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_zip_code',
         [
-            'label' => esc_html( $postal_code ),
+            'label' => esc_html( 'Postal Code' ),
             'type' => Controls_Manager::TEXT,
             'condition' => [
                 'posting_job_remote' => '',
@@ -646,7 +661,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_currency',
         [
-            'label' => esc_html( $currency ),
+            'label' => esc_html( 'Currency' ),
             'type' => Controls_Manager::SELECT2,
             'default' => '€',
             'options' => [

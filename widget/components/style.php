@@ -206,12 +206,10 @@ function listingContentStyle($that){
 
 // More Info
 function listingInfoStyle($that){
-    $custom_word_17 = get_option('elementor_job_posting_custom_word_17');
-    $further_information = !empty($custom_word_17) ? $custom_word_17 : 'Further information';
     $that->start_controls_section(
         'posting_more_infobox',
         [
-            'label' => esc_html( $further_information ),
+            'label' => esc_html( 'Further information' ),
             'tab' => Controls_Manager::TAB_STYLE,
         ]
     );
