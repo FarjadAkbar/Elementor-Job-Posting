@@ -8,7 +8,7 @@
  * Plugin Name: Elementor Job Posting
  * Description: Dieses Elementor Addon fügt deiner Jobseite automatisch Strukturierte Daten / Schema Markup für JobPostings hinzu.
  * Plugin URI:  https://github.com/FarjadAkbar/Elementor-Job-Posting.git
- * Version:     2.0.1
+ * Version:     2.0.2
  * Author:      Farjad Akbar
  * Author URI:  https://www.seohit.de/
  * Text Domain: elementor-job-posting
@@ -35,24 +35,23 @@ function elementor_job_posting_settings_page() {
 }
 add_action( 'admin_menu', 'elementor_job_posting_settings_page' );
 
-// Add links on plugin page
-function elementor_job_posting_plugin_links( $links ) {
-    $plugin_links = array(
-        '<a href="' . admin_url( 'options-general.php?page=elementor-job-posting-settings' ) . '">' . __( 'Translation', 'elementor-job-posting' ) . '</a>',
-    );
 
-    // Add additional links if needed
-    // Example: $plugin_links[] = '<a href="#">Link Text</a>';
-
-    return array_merge( $plugin_links, $links );
+add_filter( 'plugin_row_meta', 'wk_plugin_row_meta', 10, 2 );
+function wk_plugin_row_meta( $links, $file ) {    
+    if ( plugin_basename( __FILE__ ) == $file ) {
+        $row_meta = array(
+          'Translation'    => '<a href="' . admin_url( 'options-general.php?page=elementor-job-posting-settings' )  . '" target="_blank" aria-label="' . esc_attr__( 'Plugin Additional Links', 'elementor-job-posting' ) . '">' . esc_html__( 'Translation', 'elementor-job-posting' ) . '</a>'
+        );
+        return array_merge( $links, $row_meta );
+    }
+    return (array) $links;
 }
-add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'elementor_job_posting_plugin_links' );
 
 // Step 2: Add fields to input custom words
 function elementor_job_posting_settings_page_content() {
     ?>
     <div class="wrap">
-        <h2>Elementor Job Posting Settings</h2>
+        <h2>Elementor Job Posting Translation</h2>
         <form method="post" action="options.php">
             <?php settings_fields( 'elementor-job-posting-settings-group' ); ?>
             <?php do_settings_sections( 'elementor-job-posting-settings-group' ); ?>
@@ -93,7 +92,7 @@ function elementor_job_posting_settings_init() {
         register_setting('elementor-job-posting-settings-group', "elementor_job_posting_custom_word_$key");
     }
 
-    add_settings_section('elementor-job-posting-settings-section', 'Tranlation', 'elementor_job_posting_settings_section_callback', 'elementor-job-posting-settings-group');
+    add_settings_section('elementor-job-posting-settings-section', 'Translation', 'elementor_job_posting_settings_section_callback', 'elementor-job-posting-settings-group');
 
     // Add settings fields for each custom word
     foreach ($arr as $key => $value) {
