@@ -649,7 +649,7 @@ function listingInfo($that){
     $that->add_control(
         'posting_job_max_price',
         [
-            'label' => esc_html( $salary . ' (Minimum / Optional)' ),
+            'label' => esc_html( $salary . ' (Maximum / Optional)' ),
             'type' => Controls_Manager::NUMBER,
             'min' => 1,
             'max' => 100000,

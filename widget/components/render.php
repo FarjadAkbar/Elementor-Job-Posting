@@ -149,7 +149,11 @@ function renderHtml($settings){
                     <div class="col-md-9 px-lg-1 px-0">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo !empty($custom_word_16) ? $custom_word_16 : 'Salary'; ?></h5>
-                            <p class="box-description"><?php echo $posting_job_price . $posting_job_currency; ?> / <?php echo $posting_job_per; ?></p>
+                            <p class="box-description">
+                                <?php echo $posting_job_price ?> 
+                                <?php echo $posting_job_max_price != '' ? "-$posting_job_max_price" : ''; ?> 
+                                <?php echo $posting_job_currency; ?> / <?php echo $posting_job_per; ?>
+                            </p>
                         </div>
                     </div>
                 </div>

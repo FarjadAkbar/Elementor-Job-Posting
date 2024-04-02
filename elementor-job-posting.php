@@ -8,7 +8,7 @@
  * Plugin Name: Elementor Job Posting
  * Description: Dieses Elementor Addon fügt deiner Jobseite automatisch Strukturierte Daten / Schema Markup für JobPostings hinzu.
  * Plugin URI:  https://github.com/FarjadAkbar/Elementor-Job-Posting.git
- * Version:     2.0.0
+ * Version:     2.0.1
  * Author:      Farjad Akbar
  * Author URI:  https://www.seohit.de/
  * Text Domain: elementor-job-posting
@@ -31,9 +31,22 @@ $updateChecker->setBranch('main');
 
 // Step 1: Create a settings page in WordPress admin
 function elementor_job_posting_settings_page() {
-    add_options_page( 'Elementor Job Posting Settings', 'Elementor Job Posting', 'manage_options', 'elementor-job-posting-settings', 'elementor_job_posting_settings_page_content' );
+    add_options_page( 'Elementor Job Posting Translation', 'Elementor Job Posting', 'manage_options', 'elementor-job-posting-settings', 'elementor_job_posting_settings_page_content' );
 }
 add_action( 'admin_menu', 'elementor_job_posting_settings_page' );
+
+// Add links on plugin page
+function elementor_job_posting_plugin_links( $links ) {
+    $plugin_links = array(
+        '<a href="' . admin_url( 'options-general.php?page=elementor-job-posting-settings' ) . '">' . __( 'Translation', 'elementor-job-posting' ) . '</a>',
+    );
+
+    // Add additional links if needed
+    // Example: $plugin_links[] = '<a href="#">Link Text</a>';
+
+    return array_merge( $plugin_links, $links );
+}
+add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'elementor_job_posting_plugin_links' );
 
 // Step 2: Add fields to input custom words
 function elementor_job_posting_settings_page_content() {
