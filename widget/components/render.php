@@ -200,8 +200,9 @@ function renderHtml($settings){
             "logo" => (!empty($posting_job_image['url'])) ? $posting_job_image['url'] : null
         ),
         "employmentType" => (!empty($posting_job_image['url'])) ? $posting_job_type : null,
-        "datePosted" => "$datePosted",
-        "validThrough" => "$validThrough",
+        
+        "datePosted" => date_format(date_create($posting_job_post_date), "Y-m-d"),
+        "validThrough" => date_format(date_create($posting_job_expire_date), "Y-m-d"),
         "applicantLocationRequirements" => array(
             "@type" => "Country",
             "name" => ($posting_job_remote == 'yes') ? $posting_job_country : null
