@@ -64,7 +64,7 @@ function renderHtml($settings){
                     <?php Icons_Manager::render_icon( $date_post_icon, [ 'aria-hidden' => 'true' ] ); ?>
                     <?php
                     if (!empty($posting_job_post_date)) {
-                        echo $validThrough;
+                        echo $datePosted;
                     } else {
                         echo '-';
                     }
