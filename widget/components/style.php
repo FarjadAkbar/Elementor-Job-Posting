@@ -59,6 +59,9 @@ function add_text_controls( $that, $section_id, $label, $selector ) {
             'name'     => $section_id . '_typography',
             'label'    => esc_html( $label . ' Typography' ),
             'selector' => '{{WRAPPER}} ' . $selector,
+            'global' => [
+                'default' => \Elementor\Core\Kits\Documents\Tabs\Global_Typography::TYPOGRAPHY_PRIMARY,
+            ],
         ]
     );
 
