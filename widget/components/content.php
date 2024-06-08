@@ -4,7 +4,7 @@ use Elementor\Utils;
 
 
 
-function listingHeader($that){
+function listingHeader($that, $date){    
     $that->start_controls_section(
         'header_section',
         [
@@ -72,7 +72,7 @@ function listingHeader($that){
         [
             'label' => esc_html( 'Post Date' ),
             'type' => Controls_Manager::DATE_TIME,
-            'default' => date('Y-m-d H:i'), // Set the default value to the current date and time
+            'default' => $date, // Set the default value to the current date and time
         ]
     );
     $that->add_control(
@@ -125,7 +125,7 @@ function listingContent($that){
 }
 
 
-function listingInfo($that){
+function listingInfo($that, $date){
     $custom_word_0 = get_option('elementor_job_posting_custom_word_0');
     $custom_word_1 = get_option('elementor_job_posting_custom_word_1');
     $custom_word_2 = get_option('elementor_job_posting_custom_word_2');
@@ -245,13 +245,12 @@ function listingInfo($that){
         ]
     );
 
-    $sevenDaysFromNow = date('Y-m-d H:i', strtotime('+3 months'));
     $that->add_control(
         'posting_job_expire_date',
         [
             'label' => esc_html($appliction_until),
             'type' => Controls_Manager::DATE_TIME,
-            'default' => $sevenDaysFromNow
+            'default' => $date
         ]    
     );
     
@@ -852,7 +851,38 @@ function listingInfo($that){
 
 
 function content_setting($that){
-    listingHeader($that);
+        // Option name to store the date
+        $option_post_date = 'my_custom_widget_posting_job_post_date';
+        $option_expiry_date = 'my_custom_widget_posting_job_expire_date';
+
+        // Retrieve the stored date
+        $post_date = get_option($option_post_date);
+        $expiry_date = get_option($option_expiry_date);
+    
+    
+        // Check if the date is already set
+        if ($post_date === false) {
+            $default_post_date = date('Y-m-d H:i');
+            // Store the date in the options
+            update_option($option_post_date, $default_post_date);
+        } else {
+            // Use the stored date
+            $default_post_date = $post_date;
+        }
+
+          // Check if the date is already set
+          if ($expiry_date === false) {
+            // Set the initial date to 3 months from now
+            $default_expiry_date = date('Y-m-d H:i', strtotime('+3 months'));
+            // Store the date in the options
+            update_option($option_expiry_date, $default_expiry_date);
+        } else {
+            // Use the stored date
+            $default_expiry_date = $expiry_date;
+        }
+
+     
+    listingHeader($that, $default_post_date);
     listingContent($that);
-    listingInfo($that);
+    listingInfo($that, $default_expiry_date);
 }

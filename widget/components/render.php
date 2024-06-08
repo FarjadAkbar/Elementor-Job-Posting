@@ -85,7 +85,7 @@ function renderHtml($settings){
     <div class="info-box">
         <div class="d-flex flex-wrap">
             <?php if ($posting_job_remote): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
                 <div class="row gap-2">
                     <div class="col-md-3">
                         <div class="at-icon-box-icon">
@@ -103,7 +103,7 @@ function renderHtml($settings){
             <?php endif; ?> 
 
             <?php if ($posting_job_city || $posting_job_street || $posting_job_zip_code): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
                 <div class="row gap-2">
                     <div class="col-md-3">
                         <div class="at-icon-box-icon">
@@ -122,7 +122,7 @@ function renderHtml($settings){
 
 
             <?php if ($posting_job_type): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
                 <div class="row gap-2">
                     <div class="col-md-3">
                         <div class="at-icon-box-icon">
@@ -141,7 +141,7 @@ function renderHtml($settings){
 
 
             <?php if ($posting_job_price): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
                 <div class="row gap-2">
                     <div class="col-md-3">
                         <div class="at-icon-box-icon">
@@ -165,7 +165,7 @@ function renderHtml($settings){
 
             
             <?php if ($posting_job_expire_date): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative mb-1">
+            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="at-icon-box-icon">

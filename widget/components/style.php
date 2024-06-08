@@ -216,6 +216,30 @@ function listingInfoStyle($that){
 
     dimension($that, 'infobox_padding', 'Padding', '.info-box', 'padding');
 
+    
+    $that->add_responsive_control(
+        'posting_infobox_icon_box_row_gap',
+        [
+            'label' => 'Row Gap',
+            'type' => Controls_Manager::SLIDER,
+            'size_units' => [ 'px' ],
+            'range' => [
+                'px' => [
+                    'min' => 0,
+                    'max' => 100,
+                    'step' => 1,
+                ],
+            ],
+            'default' => [
+                'unit' => 'px',
+                'size' => 10,
+            ],
+            'selectors' => [
+                '{{WRAPPER}} .info-box .icon-box'  => 'margin-bottom: {{SIZE}}{{UNIT}}',
+            ],
+        ]
+    );
+
     $that->add_group_control(
         Group_Control_Background::get_type(),
         [
