@@ -12,8 +12,9 @@ function dimension($that, $section_id, $label, $selector, $usage){
             'label' => esc_html( $label ),
             'type' => Controls_Manager::DIMENSIONS,
             'size_units' => [ 'px', '%', 'em', 'rem', 'custom' ],
+            'default' => [''],
             'selectors' => [
-                '{{WRAPPER}} ' . $selector => $usage . ': {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+                '{{WRAPPER}} ' . $selector => $usage . ': {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
             ],
         ]
     );
@@ -34,7 +35,7 @@ function slider($that, $section_id, $label, $selector, $usage){
                 ],
             ],
             'selectors' => [
-                '{{WRAPPER}} ' . $selector  => $usage . ': {{SIZE}}{{UNIT}};',
+                '{{WRAPPER}} ' . $selector  => $usage . ': {{SIZE}}{{UNIT}}  !important;',
             ],
         ]
     );
@@ -47,7 +48,7 @@ function color($that, $section_id, $label, $selector, $usage){
             'label' => esc_html( $label ),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} ' . $selector => $usage . ': {{VALUE}};',
+                '{{WRAPPER}} ' . $selector => $usage . ': {{VALUE}}  !important;',
             ],
         ]
     );
@@ -71,7 +72,7 @@ function add_text_controls( $that, $section_id, $label, $selector ) {
             'label'     => esc_html( $label . ' Color' ),
             'type'      => \Elementor\Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} ' . $selector => 'color: {{VALUE}}',
+                '{{WRAPPER}} ' . $selector => 'color: {{VALUE}}  !important',
             ],
         ]
     );
@@ -84,7 +85,7 @@ function add_background_border_control( $that, $control_id, $label, $selector ) 
             'label' => esc_html( $label . ' Background Color',  'elementor-job-posting' ),
             'type' => Controls_Manager::COLOR,
             'selectors' => [
-                '{{WRAPPER}} '. $selector => 'background-color: {{VALUE}}',
+                '{{WRAPPER}} '. $selector => 'background-color: {{VALUE}}  !important',
             ],
         ]
     );

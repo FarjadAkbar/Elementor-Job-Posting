@@ -63,7 +63,7 @@ class Elementor_Job_Posting_Widget extends Widget_Base{
     }
 
     public function get_script_depends() {
-        wp_enqueue_script('script_local', plugin_dir_url(__DIR__) . '/assets/js/script.css', array(), '5.2.3');
+        wp_enqueue_script('script_local', plugin_dir_url(__DIR__) . '/assets/js/script.js', array(), '5.2.3');
         
         return ['script_local'];
     }

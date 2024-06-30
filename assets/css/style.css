@@ -9,22 +9,22 @@
 }
 
 .job-header .job-title h2{
-    font-size: 25px;
+    font-size: 25px !important;
     font-weight: 600;
     color: rgb(0, 0, 0);
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 .job-header .job-company{
-    font-size: 14px;
+    font-size: 14px !important;
     color: rgb(0, 0, 0);
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 .job-header .job-date{
-    font-size: 12px;
+    font-size: 12px !important;
     color: rgba(0, 0, 0, 0.6);
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 .job-detail{
@@ -32,7 +32,7 @@
     padding-bottom: 30px;    
 	text-align: left;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 17px !important;
 }
 
 .info-box{
@@ -54,7 +54,7 @@ background-color: #fff4ee;
 .info-box .at-icon-box-icon i{
     width: 20px;
     height: 20px;    
-    font-size: 20px;
+    font-size: 20px !important;
     color: #AC6C47;
     fill: #AC6C47;
 }
@@ -64,18 +64,18 @@ background-color: #fff4ee;
 }
 
 .info-box .at-icon-text .box-title{
-    font-size: 13px;
+    font-size: 13px !important;
     line-height: 1.5;
     font-weight: 600;
     color: rgb(0, 0, 0);
-    margin-bottom: 0;
+    margin-bottom: 0 !important;
 }
 
 .info-box .at-icon-text .box-description{
-    font-size: 15px;
+    font-size: 15px !important;
     line-height: 1.5;
     color: rgb(0, 0, 0);
-    margin-bottom: 0px
+    margin-bottom: 0px !important;
 }
 
 
