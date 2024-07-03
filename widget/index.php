@@ -3,9 +3,9 @@ use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
 
-require_once "components/content.php";
-require_once "components/style.php";
-require_once "components/render.php";
+require_once EJP_PLUGIN_PATH . "widget/components/content/index.php";
+require_once EJP_PLUGIN_PATH . "widget/components/style/index.php";
+require_once EJP_PLUGIN_PATH . "widget/components/render/index.php";
 
 if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -85,7 +85,7 @@ class Elementor_Job_Posting_Widget extends Widget_Base{
     protected function register_controls()
     {
         content_setting($this);
-        styling_setting($this);
+        apply_styling_settings($this);
     }
 
     protected function render() {
