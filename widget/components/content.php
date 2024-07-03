@@ -72,7 +72,7 @@ function listingHeader($that, $date){
         [
             'label' => esc_html( 'Post Date' ),
             'type' => Controls_Manager::DATE_TIME,
-            'default' => $date, // Set the default value to the current date and time
+            // 'default' => $date, // Set the default value to the current date and time
         ]
     );
     $that->add_control(

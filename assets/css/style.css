@@ -40,6 +40,10 @@
     padding-right: auto;
 }
 
+.info-box .icon-box{
+    min-width: 240px;
+}
+
 .info-box .at-icon-box-icon{
 background-color: #fff4ee;
     width: 40px;
@@ -60,7 +64,7 @@ background-color: #fff4ee;
 }
 
 .info-box .at-icon-text{
-    margin: 0 12px;
+    padding: 0 5px;
 }
 
 .info-box .at-icon-text .box-title{
@@ -78,10 +82,7 @@ background-color: #fff4ee;
     margin-bottom: 0px !important;
 }
 
-
-@media (min-width: 768px){
-    .col-md-3 {
-        flex: 0 0 20% !important;
-        max-width: 20% !important;
-    }
+.col-3 {
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
 }

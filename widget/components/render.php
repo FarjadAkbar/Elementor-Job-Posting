@@ -38,11 +38,32 @@ function dateformating($date, $date_formatting){
 
     return $formatted_date;    
 }
+
+
+function is_elementor_editor() {
+    if (isset($_GET['elementor-preview']) || isset($_GET['action']) && $_GET['action'] === 'elementor') {
+        return true;
+    }
+    return false;
+}
+
+function formatPostingDate($post_date, $date_format, $stored_date) {
+    if ($post_date != "") {
+        return dateformating($post_date, $date_format);
+    }
+    return is_elementor_editor() ? $stored_date : 'xx/xx/xxxx';
+}
+
 function renderHtml($settings){
-    extract($settings);
     
+    extract($settings);
+
+    // Retrieve the stored date and format it
+    $post_date = get_option('my_custom_widget_posting_job_post_date');
+    
+    // Format the posting date
+    $datePosted = formatPostingDate($posting_job_post_date, $posting_job_date_format, $post_date);
     $validThrough = dateformating($posting_job_expire_date, $posting_job_date_format);
-    $datePosted = dateformating($posting_job_post_date, $posting_job_date_format);
 
     $custom_word_12 = get_option('elementor_job_posting_custom_word_12');
     $custom_word_13 = get_option('elementor_job_posting_custom_word_13');
@@ -63,11 +84,7 @@ function renderHtml($settings){
             <p class="job-date">
                     <?php Icons_Manager::render_icon( $date_post_icon, [ 'aria-hidden' => 'true' ] ); ?>
                     <?php
-                    if (!empty($posting_job_post_date)) {
-                        echo $datePosted;
-                    } else {
-                        echo '-';
-                    }
+                    echo $datePosted;
                     ?>
                 </p>
                 <a class="job-title" href="<?php echo !empty($posting_job_link['url']) ? $posting_job_link : '#'; ?>">
@@ -85,14 +102,14 @@ function renderHtml($settings){
     <div class="info-box">
         <div class="d-flex flex-wrap">
             <?php if ($posting_job_remote): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
+            <div class="position-relative icon-box">
                 <div class="row gap-2">
-                    <div class="col-md-3">
+                    <div class="col-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $remote_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-9 px-lg-1 px-0">
+                    <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo !empty($custom_word_12) ? $custom_word_12 : 'Remote'; ?></h5>
                             <p class="box-description"><?php echo !empty($custom_word_13) ? $custom_word_13 : 'Home Office'; ?></p>
@@ -103,14 +120,14 @@ function renderHtml($settings){
             <?php endif; ?> 
 
             <?php if ($posting_job_city || $posting_job_street || $posting_job_zip_code): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
+            <div class="position-relative icon-box">
                 <div class="row gap-2">
-                    <div class="col-md-3">
+                    <div class="col-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $location_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-9 px-lg-1 px-0">
+                    <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo !empty($custom_word_14) ? $custom_word_14 : 'Work Place'; ?></h5>
                             <p class="box-description"><?php echo $posting_job_street; ?></p><p class="box-description"><?php echo $posting_job_zip_code . ' ' . $posting_job_city; ?></p>
@@ -122,14 +139,14 @@ function renderHtml($settings){
 
 
             <?php if ($posting_job_type): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
+            <div class="position-relative icon-box">
                 <div class="row gap-2">
-                    <div class="col-md-3">
+                    <div class="col-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $job_type_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-9 px-lg-1 px-0">
+                    <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo !empty($custom_word_15) ? $custom_word_15 : 'Employment type'; ?></h5>
                             <p class="box-description"><?php echo $posting_job_type; ?></p>
@@ -141,14 +158,14 @@ function renderHtml($settings){
 
 
             <?php if ($posting_job_price): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
+            <div class="position-relative icon-box">
                 <div class="row gap-2">
-                    <div class="col-md-3">
+                    <div class="col-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $salary_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-9 px-lg-1 px-0">
+                    <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo !empty($custom_word_16) ? $custom_word_16 : 'Salary'; ?></h5>
                             <p class="box-description">
@@ -165,14 +182,14 @@ function renderHtml($settings){
 
             
             <?php if ($posting_job_expire_date): ?>
-            <div class="col-lg-auto col-md-6 col-12 position-relative icon-box">
-                <div class="row">
-                    <div class="col-md-3">
+            <div class="position-relative icon-box">
+                <div class="row gap-2">
+                    <div class="col-3">
                         <div class="at-icon-box-icon">
                             <?php Icons_Manager::render_icon( $date_icon, [ 'aria-hidden' => 'true' ] ); ?>
                         </div>
                     </div>
-                    <div class="col-md-9 px-lg-1 px-0">
+                    <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
                             <h5 class="box-title"><?php echo !empty($custom_word_17) ? $custom_word_17 : 'Application Until'; ?></h5>
                             <p class="box-description"><?php echo $validThrough; ?></p>
