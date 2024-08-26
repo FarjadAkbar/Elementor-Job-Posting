@@ -9,30 +9,43 @@
 }
 
 .job-header .job-title h2{
-    font-size: 25px !important;
-    font-weight: 600;
     color: rgb(0, 0, 0);
     margin-bottom: 0 !important;
+}
+
+.job-header .job-title h2.no-typography{
+    font-size: 25px !important;
+    font-weight: 600 !important;
 }
 
 .job-header .job-company{
-    font-size: 14px !important;
     color: rgb(0, 0, 0);
     margin-bottom: 0 !important;
 }
 
+
+.job-header .job-company.no-typography{
+    font-size: 14px !important;
+}
+
 .job-header .job-date{
-    font-size: 12px !important;
     color: rgba(0, 0, 0, 0.6);
     margin-bottom: 0 !important;
+}
+
+.job-header .job-date.no-typography{
+    font-size: 12px !important;
 }
 
 .job-detail{
     padding-top: 30px;
     padding-bottom: 30px;    
 	text-align: left;
-    font-weight: 400;
+}
+
+.job-detail.no-typography{
     font-size: 17px !important;
+    font-weight: 400 !important;
 }
 
 .info-box{
@@ -68,18 +81,25 @@ background-color: #fff4ee;
 }
 
 .info-box .at-icon-text .box-title{
-    font-size: 13px !important;
-    line-height: 1.5;
-    font-weight: 600;
     color: rgb(0, 0, 0);
     margin-bottom: 0 !important;
 }
 
+.info-box .at-icon-text .box-title.no-typography{
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    font-weight: 600 !important;
+}
+
 .info-box .at-icon-text .box-description{
-    font-size: 15px !important;
-    line-height: 1.5;
     color: rgb(0, 0, 0);
     margin-bottom: 0px !important;
+}
+
+
+.info-box .at-icon-text .box-description.no-typography{
+    font-size: 15px !important;
+    line-height: 1.5 !important;
 }
 
 .col-3 {

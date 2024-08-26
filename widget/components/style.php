@@ -328,7 +328,6 @@ function listingInfoStyle($that){
         ]
     );
     add_text_controls($that, 'posting_infobox_description', 'Description', '.info-box .at-icon-text .box-description');
-    dimension($that, 'infobox_description_padding', 'Padding', 'info-box .at-icon-text .box-description', 'padding');
  
     $that->end_controls_section();
 }
