@@ -95,15 +95,15 @@ function renderHtml($settings){
                     echo $datePosted;
                     ?>
                 </p>
-                <a class="job-title" href="<?php echo !empty($posting_job_link['url']) ? $posting_job_link : '#'; ?>">
-                    <h2 class="<?php echo $header_title_typography; ?> m-0"><?php echo $posting_job_title; ?></h2>
+                <a class="job-title" href="<?php echo !empty($posting_job_link['url']) ? esc_attr($posting_job_link) : '#'; ?>">
+                    <h2 class="<?php echo esc_attr($header_title_typography); ?> m-0"><?php echo esc_html($posting_job_title); ?></h2>
                 </a>
-                <p class="job-company <?php echo $header_company_typography; ?>"><?php echo $posting_job_company; ?></p>
+                <p class="job-company <?php echo esc_attr($header_company_typography); ?>"><?php echo esc_html($posting_job_company); ?></p>
             </div>
         </div>
     </div>
     
-    <div class="job-detail <?php echo $description_typography; ?>">
+    <div class="job-detail <?php echo esc_attr($description_typography); ?>">
         <?php echo nl2br($posting_job_description); ?>
     </div>
 
@@ -119,8 +119,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
-                            <h5 class="box-title <?php echo $info_title_typography; ?>"><?php echo !empty($custom_word_12) ? $custom_word_12 : 'Remote'; ?></h5>
-                            <p class="box-description"><?php echo !empty($custom_word_13) ? $custom_word_13 : 'Home Office'; ?></p>
+                            <h5 class="box-title <?php echo esc_attr($info_title_typography); ?>"><?php echo !empty($custom_word_12) ? esc_html($custom_word_12) : 'Remote'; ?></h5>
+                            <p class="box-description <?php echo esc_attr($info_company_typography); ?>"><?php echo !empty($custom_word_13) ? esc_html($custom_word_13) : 'Home Office'; ?></p>
                         </div>    
                     </div>
                 </div>
@@ -137,8 +137,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
-                            <h5 class="box-title <?php echo $info_title_typography; ?>"><?php echo !empty($custom_word_14) ? $custom_word_14 : 'Work Place'; ?></h5>
-                            <p class="box-description <?php echo $info_company_typography; ?>"><?php echo $posting_job_street; ?></p><p class="box-description <?php echo $info_company_typography; ?>"><?php echo $posting_job_zip_code . ' ' . $posting_job_city; ?></p>
+                            <h5 class="box-title <?php echo esc_attr($info_title_typography); ?>"><?php echo !empty($custom_word_14) ? esc_html($custom_word_14) : 'Work Place'; ?></h5>
+                            <p class="box-description <?php echo esc_attr($info_company_typography); ?>"><?php echo esc_html($posting_job_street); ?></p><p class="box-description <?php echo esc_attr($info_company_typography); ?>"><?php echo esc_html($posting_job_zip_code) . ' ' . esc_html($posting_job_city); ?></p>
                         </div>
                     </div>
                 </div>
@@ -156,8 +156,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
-                            <h5 class="box-title <?php echo $info_title_typography; ?>"><?php echo !empty($custom_word_15) ? $custom_word_15 : 'Employment type'; ?></h5>
-                            <p class="box-description <?php echo $info_company_typography; ?>"><?php echo $posting_job_type; ?></p>
+                            <h5 class="box-title <?php echo esc_attr($info_title_typography); ?>"><?php echo !empty($custom_word_15) ? esc_html($custom_word_15) : 'Employment type'; ?></h5>
+                            <p class="box-description <?php echo esc_attr($info_company_typography); ?>"><?php echo esc_html($posting_job_type); ?></p>
                         </div>
                     </div>
                 </div>
@@ -175,11 +175,11 @@ function renderHtml($settings){
                     </div>
                     <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
-                            <h5 class="box-title <?php echo $info_title_typography; ?>"><?php echo !empty($custom_word_16) ? $custom_word_16 : 'Salary'; ?></h5>
-                            <p class="box-description <?php echo $info_company_typography; ?>">
-                                <?php echo $posting_job_price ?> 
-                                <?php echo $posting_job_max_price != '' ? "-$posting_job_max_price" : ''; ?> 
-                                <?php echo $posting_job_currency; ?> / <?php echo $posting_job_per; ?>
+                            <h5 class="box-title <?php echo esc_attr($info_title_typography); ?>"><?php echo !empty($custom_word_16) ? esc_html($custom_word_16) : 'Salary'; ?></h5>
+                            <p class="box-description <?php echo esc_attr$info_company_typography); ?>">
+                                <?php echo esc_html($posting_job_price); ?> 
+                                <?php echo $posting_job_max_price != '' ? "-esc_html($posting_job_max_price)" : ''; ?> 
+                                <?php echo esc_html($posting_job_currency); ?> / <?php echo esc_html($posting_job_per); ?>
                             </p>
                         </div>
                     </div>
@@ -199,8 +199,8 @@ function renderHtml($settings){
                     </div>
                     <div class="col-8 col-md-9 px-1">
                         <div class="at-icon-text">
-                            <h5 class="box-title <?php echo $info_title_typography; ?>"><?php echo !empty($custom_word_17) ? $custom_word_17 : 'Application Until'; ?></h5>
-                            <p class="box-description <?php echo $info_company_typography; ?>"><?php echo $validThrough; ?></p>
+                            <h5 class="box-title <?php echo esc_attr($info_title_typography); ?>"><?php echo !empty($custom_word_17) ? esc_html($custom_word_17) : 'Application Until'; ?></h5>
+                            <p class="box-description <?php echo esc_attr($info_company_typography); ?>"><?php echo esc_html($validThrough); ?></p>
                         </div>
                     </div>
                 </div>
